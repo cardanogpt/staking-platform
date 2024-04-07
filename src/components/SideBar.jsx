@@ -15,7 +15,8 @@ export const SideBar = () => {
     <Drawer
       PaperProps={{
         sx: {
-          bgColor: "#0F0F0F",
+          backgroundColor: "#0F0F0F",
+          color: "secondary.main",
         },
       }}
       sx={{
