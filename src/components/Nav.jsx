@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import AccountCircle from "@mui/icons-material/AccountCircle";
+import { Help } from "@mui/icons-material";
 
 const Nav = ({ title = "Dashboard", drawerWidth }) => {
   const [auth, setAuth] = React.useState(true);
@@ -39,9 +39,15 @@ const Nav = ({ title = "Dashboard", drawerWidth }) => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              sx={{ color: "primary.main" }}
+              sx={{
+                color: "primary.main",
+                p: 1,
+                backgroundColor: "rgba(73, 223, 40, 0.1)",
+                border: "1px solid rgba(146, 236, 126, 0.2)",
+                borderRadius: "2px",
+              }}
             >
-              <AccountCircle />
+              <Help />
             </IconButton>
           </div>
         )}
