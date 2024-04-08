@@ -3,6 +3,9 @@ import { createTheme } from "@mui/material/styles";
 //mui theme settings
 export const theme = createTheme({
   palette: {
+    text: {
+      primary: "#FFFFFF",
+    },
     primary: {
       100: "#EDFCEA",
       200: "#C9F6BF",
@@ -22,5 +25,8 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: "Albert Sans, sans-serif",
+    allVariants: {
+      color: "secondary.main",
+    },
   },
 });
