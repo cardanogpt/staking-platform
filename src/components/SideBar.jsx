@@ -2,13 +2,12 @@ import React from "react";
 import Drawer from "@mui/material/Drawer";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-
+import { NavLink } from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 
 const drawerWidth = 240;
-console.log(drawerWidth);
 
 export const SideBar = () => {
   return (
@@ -35,17 +34,27 @@ export const SideBar = () => {
         CardanoGPT
       </Typography>
       <List>
-        <ListItem key={"Dashboard"} disablePadding>
+        <ListItem key={"Dashboard"} component={NavLink} to="/" disablePadding>
           <ListItemButton>
             <ListItemText primary={"Dashboard"} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={"Staking"} disablePadding>
+        <ListItem
+          key={"Staking"}
+          component={NavLink}
+          to="/stake"
+          disablePadding
+        >
           <ListItemButton>
             <ListItemText primary={"Stake "} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={"Manage Positions"} disablePadding>
+        <ListItem
+          key={"Manage Positions"}
+          component={NavLink}
+          to="/manage-positions"
+          disablePadding
+        >
           <ListItemButton>
             <ListItemText primary={"Manage Positions"} />
           </ListItemButton>
