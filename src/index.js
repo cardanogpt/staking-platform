@@ -4,12 +4,31 @@ import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard from "./scenes/Dashboard";
+import ManagePositons from "./scenes/ManagePositions";
+import Stake from "./scenes/Stake";
+import Full from "./scenes/Full";
+
+const BrowserRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/", element: <Full /> },
+      { path: "/manage-positions", element: <ManagePositons /> },
+      { path: "/stake", element: <Stake /> },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <RouterProvider router={BrowserRouter}>
+        <App />
+      </RouterProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

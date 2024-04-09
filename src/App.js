@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { SideBar } from "./components/SideBar";
 import Nav from "./components/Nav";
-import Dashboard from "./scenes/Dashboard";
-import Transaction from "./components/TransactionHistory";
+import { Outlet } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -17,7 +16,7 @@ function App() {
       <CssBaseline />
       <Nav title="Dashboard" drawerWidth={drawerWidth} />
       <SideBar />
-      <Transaction />
+      <Outlet />
     </Box>
   );
 }
