@@ -5,17 +5,18 @@ import App from "./App";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Main from "./scenes/Main";
 import Dashboard from "./scenes/Dashboard";
 import ManagePositons from "./scenes/ManagePositions";
 import Stake from "./scenes/Stake";
-import Full from "./scenes/Full";
 
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <Full /> },
+      { path: "/", element: <Main /> },
+      { path: "/dashboard", element: <Dashboard /> },
       { path: "/manage-positions", element: <ManagePositons /> },
       { path: "/stake", element: <Stake /> },
     ],
