@@ -11,7 +11,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import IconButton from "@mui/material/IconButton";
 
-const TableObj = ({ data, title, rows, children }) => {
+const TableObj = ({ title, rows, children }) => {
   return (
     <Box
       display="flex"

@@ -19,7 +19,6 @@ const CardObj = ({
   title2,
   amount1,
   amount2,
-  amount,
   buttonText1,
   buttonText2,
   disabled,

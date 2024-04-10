@@ -12,7 +12,7 @@ const navTitles = {
   "/manage-positions": "Manage Positions",
 };
 
-const Nav = ({ title = "Dashboard", drawerWidth }) => {
+const Nav = ({ drawerWidth }) => {
   const location = window.location.pathname;
   console.log(location);
   useEffect(() => {

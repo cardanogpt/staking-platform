@@ -21,7 +21,6 @@ const style = {
 };
 
 export default function CompleteStakeModal({ openModal, setModalOpen }) {
-  const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
 
   return (
