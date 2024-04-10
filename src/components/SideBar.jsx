@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
+import logo from "../assets/images/cardanogpt_full_logo.png";
 
 const drawerWidth = 240;
 
@@ -30,11 +31,31 @@ export const SideBar = () => {
       variant="permanent"
       anchor="left"
     >
-      <Typography paddingY={"2rem"} alignSelf={"center"} paragraph>
-        CardanoGPT
+      <Typography
+        component={NavLink}
+        to="/"
+        paddingY={"2rem"}
+        paragraph
+        sx={{}}
+      >
+        <img src={logo} alt="" />
       </Typography>
-      <List>
-        <ListItem key={"Dashboard"} component={NavLink} to="/" disablePadding>
+      <List
+        sx={{
+          "& a.active": {
+            borderLeft: "3px solid",
+            borderColor: "primary.main",
+            background:
+              "linear-gradient(270deg, rgba(73, 223, 40, 0) 0%,rgba(73, 223, 40, 0.1) 100%)",
+          },
+        }}
+      >
+        <ListItem
+          key={"Dashboard"}
+          component={NavLink}
+          to="/dashboard"
+          disablePadding
+        >
           <ListItemButton>
             <ListItemText primary={"Dashboard"} />
           </ListItemButton>
