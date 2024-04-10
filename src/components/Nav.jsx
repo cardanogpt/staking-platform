@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
+import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { Help } from "@mui/icons-material";
+import profile from "../assets/images/profile.png";
 
 const navTitles = {
   "/": "Connect",
@@ -12,13 +14,12 @@ const navTitles = {
   "/manage-positions": "Manage Positions",
 };
 
-const Nav = ({ drawerWidth }) => {
+const Nav = ({ drawerWidth, auth, setAuth }) => {
   const location = window.location.pathname;
-  console.log(location);
   useEffect(() => {
     document.title = navTitles[location];
   }, [location]);
-  const [auth, setAuth] = React.useState(false);
+
   return (
     <AppBar
       position="fixed"
@@ -27,16 +28,10 @@ const Nav = ({ drawerWidth }) => {
         height: "6rem",
         ml: `${drawerWidth}px`,
         bgcolor: "secondary.500",
+        justifyContent: "center",
       }}
     >
       <Toolbar>
-        <IconButton
-          onClick={() => setAuth(true)}
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-        ></IconButton>
         <Typography
           variant="h6"
           component="div"
@@ -44,27 +39,54 @@ const Nav = ({ drawerWidth }) => {
         >
           {navTitles[location]}
         </Typography>
-        {auth ? (
-          "test"
-        ) : (
-          <div>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              sx={{
-                color: "primary.main",
-                p: 1,
-                backgroundColor: "rgba(73, 223, 40, 0.1)",
-                border: "1px solid rgba(146, 236, 126, 0.2)",
-                borderRadius: "2px",
-              }}
+        <Box
+          display={"flex"}
+          gap={2}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            sx={{
+              color: "primary.main",
+              p: 1,
+              backgroundColor: "rgba(73, 223, 40, 0.1)",
+              border: "1px solid rgba(146, 236, 126, 0.2)",
+              borderRadius: "2px",
+            }}
+          >
+            <Help />
+          </IconButton>
+          {auth && (
+            <Box
+              display={"flex"}
+              backgroundColor="#49DF281A"
+              alignItems={"center"}
+              px={2}
+              borderRadius={1}
+              gap={1}
+              justifyContent={"space-evenly"}
+              border="1px solid rgba(146, 236, 126, 0.2)"
             >
-              <Help />
-            </IconButton>
-          </div>
-        )}
+              <img
+                src={profile}
+                alt="profile"
+                style={{
+                  alignItems: "center",
+                }}
+              />
+              <Box>
+                <Typography color="secondary" variant="caption">
+                  Wallet Address
+                </Typography>
+                <Typography sx={{ color: "#FFFFFF" }}>addre.sdjandj</Typography>
+              </Box>
+            </Box>
+          )}
+        </Box>
       </Toolbar>
     </AppBar>
   );
