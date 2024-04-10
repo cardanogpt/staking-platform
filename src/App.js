@@ -9,15 +9,9 @@ const drawerWidth = 240;
 
 function App() {
   return (
-    <Box
-      minHeight={"100vh"}
-      sx={{ display: "flex", bgcolor: "secondary.600", color: "#ffffff" }}
-    >
-      <CssBaseline />
-      <Nav title="Dashboard" drawerWidth={drawerWidth} />
-      <SideBar />
-      <Outlet />
-    </Box>
+    <>
+      <ScrollTop />
+    </>
   );
 }
 
