@@ -18,7 +18,7 @@ const Nav = ({ title = "Dashboard", drawerWidth }) => {
   useEffect(() => {
     document.title = navTitles[location];
   }, [location]);
-  const [auth, setAuth] = React.useState(true);
+  const [auth, setAuth] = React.useState(false);
   return (
     <AppBar
       position="fixed"
@@ -31,6 +31,7 @@ const Nav = ({ title = "Dashboard", drawerWidth }) => {
     >
       <Toolbar>
         <IconButton
+          onClick={() => setAuth(true)}
           size="large"
           edge="start"
           color="inherit"
@@ -43,7 +44,9 @@ const Nav = ({ title = "Dashboard", drawerWidth }) => {
         >
           {navTitles[location]}
         </Typography>
-        {auth && (
+        {auth ? (
+          "test"
+        ) : (
           <div>
             <IconButton
               size="large"
