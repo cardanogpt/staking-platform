@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { Help } from "@mui/icons-material";
 
+const navTitles = {
+  "/": "Connect",
+  "/dashboard": "Dashboard",
+  "/stake": "Stake",
+  "/manage-positions": "Manage Positions",
+};
+
 const Nav = ({ title = "Dashboard", drawerWidth }) => {
+  const location = window.location.pathname;
+  console.log(location);
+  useEffect(() => {
+    document.title = navTitles[location];
+  }, [location]);
   const [auth, setAuth] = React.useState(true);
   return (
     <AppBar
@@ -23,14 +35,13 @@ const Nav = ({ title = "Dashboard", drawerWidth }) => {
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2 }}
         ></IconButton>
         <Typography
           variant="h6"
           component="div"
           sx={{ flexGrow: 1, color: "#FFFFFF" }}
         >
-          {title}
+          {navTitles[location]}
         </Typography>
         {auth && (
           <div>
