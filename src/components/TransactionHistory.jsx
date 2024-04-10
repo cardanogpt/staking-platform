@@ -11,7 +11,7 @@ import TableObj from "./TableObj";
 
 const Transaction = () => {
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" width="100%">
+    <Box width="100%">
       <TableObj
         data={TransactionData}
         title={"Transaction History"}
