@@ -7,6 +7,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { stakeDetails } from "../data";
+import ErrorPopup from "./ErrorPopup";
 
 const style = {
   position: "absolute",
@@ -54,7 +55,6 @@ const PillButton = ({ num, setDuration }) => (
 
 const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
   const [duration, setDuration] = React.useState(0);
-  console.log(duration);
   const handleClose = () => setModalOpen(false);
 
   const submitStake = () => {
@@ -146,6 +146,7 @@ const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
         >
           Confirm Stake
         </Button>
+        <ErrorPopup />
       </Box>
     </Modal>
   );
