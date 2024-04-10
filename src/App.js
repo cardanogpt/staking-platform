@@ -4,6 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { SideBar } from "./components/SideBar";
 import Nav from "./components/Nav";
 import { Outlet } from "react-router-dom";
+import ScrollTop from "./components/ScrollTop";
 
 const drawerWidth = 240;
 
