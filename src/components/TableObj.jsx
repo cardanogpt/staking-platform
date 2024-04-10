@@ -66,8 +66,8 @@ const TableObj = ({ title, rows, children }) => {
           >
             <TableHead sx={{ color: "#ffffff" }}>
               <TableRow>
-                {rows.map((row) => (
-                  <TableCell>{row}</TableCell>
+                {rows.map((row, i) => (
+                  <TableCell key={i}>{row}</TableCell>
                 ))}
               </TableRow>
             </TableHead>

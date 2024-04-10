@@ -17,9 +17,12 @@ const Transaction = () => {
         title={"Transaction History"}
         rows={["Amount", "Duration", "Date", "Status", "Action"]}
       >
-        <TableBody>
+        <TableBody key={2}>
           {TransactionData.map((row) => (
-            <TableRow sx={{ "td, th": { border: 0, color: "#ffffff" } }}>
+            <TableRow
+              key={row.id}
+              sx={{ "td, th": { border: 0, color: "#ffffff" } }}
+            >
               <TableCell component="th" scope="row">
                 {row.amount}
               </TableCell>
