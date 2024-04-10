@@ -9,6 +9,7 @@ import ScrollTop from "./components/ScrollTop";
 const drawerWidth = 240;
 
 function App() {
+  const [auth, setAuth] = React.useState(false);
   return (
     <>
       <ScrollTop />
@@ -18,7 +19,12 @@ function App() {
         sx={{ display: "flex", bgcolor: "secondary.600", color: "#ffffff" }}
       >
         <CssBaseline />
-        <Nav title="Dashboard" drawerWidth={drawerWidth} />
+        <Nav
+          auth={auth}
+          setAuth={setAuth}
+          title="Dashboard"
+          drawerWidth={drawerWidth}
+        />
         <SideBar />
         {/*  show pc only text if viewed on mobile */}
         {window.innerWidth < 768 ? (
@@ -34,7 +40,7 @@ function App() {
             <h1>PC View Only</h1>
           </Box>
         ) : (
-          <Outlet />
+          <Outlet context={[auth, setAuth]} />
         )}
       </Box>
     </>
