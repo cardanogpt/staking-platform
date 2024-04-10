@@ -10,6 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { wallet } from "../data";
 import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 const modalStyle = {
   position: "absolute",
@@ -25,6 +26,7 @@ const modalStyle = {
 };
 
 const Main = () => {
+  const [auth, setAuth] = useOutletContext();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -80,7 +82,12 @@ const Main = () => {
           </Typography>
           <List>
             {wallet.map((item) => (
-              <ListItem key={item.name} component={Link} to="/dashboard">
+              <ListItem
+                key={item.name}
+                component={Link}
+                onClick={() => setAuth(true)}
+                to="/dashboard"
+              >
                 <ListItemIcon>
                   <img
                     style={{ width: "1.5rem", height: "1.5rem" }}
