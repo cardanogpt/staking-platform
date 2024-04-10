@@ -54,7 +54,7 @@ const PillButton = ({ num, setDuration }) => (
 );
 
 const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
-  const [duration, setDuration] = React.useState(0);
+  const [, setDuration] = React.useState(0);
   const handleClose = () => setModalOpen(false);
 
   const submitStake = () => {

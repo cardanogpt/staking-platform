@@ -26,7 +26,7 @@ const modalStyle = {
 };
 
 const Main = () => {
-  const [auth, setAuth] = useOutletContext();
+  const [, setAuth] = useOutletContext();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
