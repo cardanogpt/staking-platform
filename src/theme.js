@@ -26,7 +26,7 @@ export const theme = createTheme({
   typography: {
     fontFamily: "Albert Sans, sans-serif",
     allVariants: {
-      color: "secondary.main",
+      color: "#B8B8B8",
     },
   },
 });
