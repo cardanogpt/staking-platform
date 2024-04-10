@@ -20,7 +20,22 @@ function App() {
         <CssBaseline />
         <Nav title="Dashboard" drawerWidth={drawerWidth} />
         <SideBar />
-        <Outlet />
+        {/*  show pc only text if viewed on mobile */}
+        {window.innerWidth < 768 ? (
+          <Box
+            display="flex"
+            alignItems="center"
+            color="secondary.main"
+            bgcolor="secondary.600"
+            padding="1rem"
+            width="100%"
+            textAlign="center"
+          >
+            <h1>PC View Only</h1>
+          </Box>
+        ) : (
+          <Outlet />
+        )}
       </Box>
     </>
   );
