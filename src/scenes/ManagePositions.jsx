@@ -13,6 +13,7 @@ const ManagePositions = () => {
         justifyContent="space-between"
         alignItems="stretch"
         m="2rem"
+        flexWrap="wrap"
       >
         <CardObj
           title="Total Portfolio Value (CGI)"
