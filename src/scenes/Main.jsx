@@ -4,10 +4,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import logo from "../assets/images/cardanogpt_logo.png";
 import Modal from "@mui/material/Modal";
+import { Dialog } from "@mui/material";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { wallet } from "../data";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
@@ -62,55 +66,82 @@ const Main = () => {
           Connect Wallet
         </Button>
       </Box>
-      <Modal
+      <Dialog
         open={open}
+        scroll="body"
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description"
+        sx={{
+          backdropFilter: "blur(5px)",
+          borderRadius: "3rem",
+        }}
       >
-        <Box sx={modalStyle}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Connect Wallet
-          </Typography>
-          <Typography
-            id="modal-modal-description"
-            variant="caption"
-            sx={{ mt: 2 }}
+        <Box
+          sx={{
+            bgcolor: "secondary.600",
+            width: 420,
+            border: "1px solid ",
+            borderColor: "secondary.300",
+            py: "2rem",
+          }}
+        >
+          <DialogTitle
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            display="flex"
+            justifyContent="space-between"
+            color={"#ffffff"}
           >
-            By connecting your wallet, you agree to the Terms & Conditions and
-            Privacy Policy
-          </Typography>
-          <List>
-            {wallet.map((item) => (
-              <ListItem
-                key={item.name}
-                component={Link}
-                onClick={() => setAuth(true)}
-                to="/dashboard"
-              >
-                <ListItemIcon>
-                  <img
-                    style={{ width: "1.5rem", height: "1.5rem" }}
-                    src={`logos/${item.name}.png`}
-                    alt=""
+            Connect Wallet
+            <Button onClick={handleClose} sx={{ color: "#ffffff" }}>
+              <HighlightOffIcon />
+            </Button>
+          </DialogTitle>
+          <DialogContent>
+            <Typography
+              id="modal-modal-description"
+              variant="caption"
+              sx={{ mt: 2 }}
+            >
+              By connecting your wallet, you agree to the Terms & Conditions and
+              Privacy Policy
+            </Typography>
+            <List>
+              {wallet.map((item) => (
+                <ListItem
+                  key={item.name}
+                  component={Link}
+                  onClick={() => setAuth(true)}
+                  to="/dashboard"
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "1.5rem", height: "1.5rem" }}
+                      src={`logos/${item.name}.png`}
+                      alt=""
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    sx={{
+                      "& .MuiListItemText-primary": {
+                        color: "#ffffff",
+                      },
+                      "& .MuiListItemText-secondary": {
+                        color: "secondary.main",
+                        fontSize: "0.6rem",
+                      },
+                    }}
+                    primary={`${item.name} Wallet`}
+                    secondary={`Connect to your ${item.name} wallet on your browser extension`}
                   />
-                </ListItemIcon>
-                <ListItemText
-                  sx={{
-                    color: "white",
-                    "& .MuiListItemText-secondary": {
-                      color: "secondary.main",
-                      fontSize: "0.6rem",
-                    },
-                  }}
-                  primary={`${item.name} Wallet`}
-                  secondary={`Connect to your ${item.name} wallet on your browser extension`}
-                />
-              </ListItem>
-            ))}
-          </List>
+                </ListItem>
+              ))}
+            </List>
+          </DialogContent>
         </Box>
-      </Modal>
+      </Dialog>
     </Box>
   );
 };

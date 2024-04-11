@@ -1,5 +1,8 @@
 import React from "react";
-import { Modal } from "@mui/material";
+import { Dialog } from "@mui/material";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -8,19 +11,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { stakeDetails } from "../data";
 import ErrorPopup from "./ErrorPopup";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 500,
-  bgcolor: "secondary.500",
-  border: "2px solid #000",
-  boxShadow: 24,
-  color: "rgba(255, 255, 255, 0.6)",
-  p: 4,
-};
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 const ListItemObj = ({ title, value }) => (
   <ListItem sx={{ padding: "0" }}>
@@ -42,19 +34,43 @@ const ListItemObj = ({ title, value }) => (
   </ListItem>
 );
 
-const PillButton = ({ num, setDuration }) => (
+const PillButton = ({ num, setDuration, active }) => (
   <Button
     variant="outlined"
     color="secondary"
-    sx={{ fontSize: "0.6rem", textTransform: "none", padding: "0.7rem 1.4rem" }}
+    sx={{
+      position: "relative",
+      fontSize: "0.6rem",
+      textTransform: "none",
+      padding: "0.7rem 1rem",
+      borderRadius: "15px",
+      borderColor: active ? "#E6DC0B" : "secondary.300",
+      color: active ? "white" : "secondary.200",
+      "&:hover": {
+        borderColor: active ? "#E6DC0B" : "secondary.200",
+      },
+    }}
     onClick={() => setDuration(num)}
   >
+    {active && (
+      <CheckCircleOutlineIcon
+        sx={{
+          position: "absolute",
+          top: "3px",
+          right: "5px",
+          color: "black",
+          fontSize: "0.7rem",
+          background: "linear-gradient(180deg, #E6DC0B 0.15%, #49DF28 129.41%)",
+          borderRadius: "50%",
+        }}
+      />
+    )}
     {num} Months
   </Button>
 );
 
 const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
-  const [, setDuration] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
   const handleClose = () => setModalOpen(false);
 
   const submitStake = () => {
@@ -64,91 +80,131 @@ const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
   };
 
   return (
-    <Modal
+    <Dialog
       open={openModal}
+      scroll="body"
       onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      aria-labelledby="scroll-dialog-title"
+      aria-describedby="scroll-dialog-description"
+      sx={{
+        backdropFilter: "blur(5px)",
+      }}
     >
-      <Box sx={style}>
-        <Typography
-          id="modal-modal-title"
+      <Box
+        sx={{
+          bgcolor: "secondary.600",
+          width: 420,
+          border: "1px solid ",
+          borderColor: "secondary.300",
+          py: "2rem",
+        }}
+      >
+        <DialogTitle
+          id="scroll-dialog-title"
           variant="h6"
           component="h2"
           color="#ffffff"
+          display="flex"
+          justifyContent="space-between"
         >
           Stake CGI
-        </Typography>
-        <Typography sx={{ mt: 2 }}>Duration</Typography>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <PillButton num={1} setDuration={setDuration} />
-          <PillButton num={3} setDuration={setDuration} />
-          <PillButton num={6} setDuration={setDuration} />
-          <PillButton num={12} setDuration={setDuration} />
-        </Box>
-        <Typography display="flex" flexDirection="column" mt="1rem">
-          Amount to Lock
-          <input
-            style={{
-              border: "1px solid #ffffffb4",
-              borderRadius: "20px",
-              my: "0.5rem",
-              background: "transparent",
-              padding: "1rem 2rem",
-              color: "#ffffffb4",
-              outline: "none",
+          <Button onClick={handleClose} sx={{ color: "#ffffff" }}>
+            <HighlightOffIcon />
+          </Button>
+        </DialogTitle>
+        <DialogContent>
+          <Typography sx={{ mt: 2 }}>Duration</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
             }}
-          />
-        </Typography>
-        <Typography display="flex" flexDirection="column" fontSize="0.6rem">
-          Available CGI: 12.30 ($12.02)
-        </Typography>
-        <Box display="flex" justifyContent="space-between" mt="1rem">
-          <Typography color="white" fontWeight="bold">
-            Summary
+          >
+            <PillButton
+              num={1}
+              setDuration={setDuration}
+              active={duration === 1}
+            />
+            <PillButton
+              num={3}
+              setDuration={setDuration}
+              active={duration === 3}
+            />
+            <PillButton
+              num={6}
+              setDuration={setDuration}
+              active={duration === 6}
+            />
+            <PillButton
+              num={12}
+              setDuration={setDuration}
+              active={duration === 12}
+            />
+          </Box>
+          <Typography display="flex" flexDirection="column" mt="1rem">
+            Amount to Lock
+            <input
+              style={{
+                border: "1px solid #ffffffb4",
+                borderRadius: "20px",
+                my: "0.5rem",
+                background: "transparent",
+                padding: "1rem 2rem",
+                color: "#ffffffb4",
+                outline: "none",
+              }}
+            />
           </Typography>
-          <Typography color="white">Show More</Typography>
-        </Box>
-        {/* js object */}
-        <List>
-          <ListItemObj
-            title="Total APY"
-            value={`${stakeDetails["Total APY"]}`}
-          />
-          <ListItemObj title="Base APY" value={`${stakeDetails["Base APY"]}`} />
-          <ListItemObj
-            title="APY Boost"
-            value={`${stakeDetails["APY Boost"]}`}
-          />
-          <ListItemObj
-            title="Total Available Rewards"
-            value={`${stakeDetails["Total Available Rewards"]}`}
-          />
-          <ListItemObj
-            title="Unlock Date"
-            value={`${stakeDetails["Unlock Date"]}`}
-          />
-          <ListItemObj
-            title="Total Interest"
-            value={`${stakeDetails["Total Interest"]}`}
-          />
-        </List>
-        <Button
-          onClick={submitStake}
-          variant="contained"
-          sx={{ mt: "1rem", width: "100%", textTransform: "none" }}
-        >
-          Confirm Stake
-        </Button>
+          <Typography display="flex" flexDirection="column" fontSize="0.6rem">
+            Available CGI: 12.30 ($12.02)
+          </Typography>
+          <Box display="flex" justifyContent="space-between" mt="1rem">
+            <Typography color="white" fontWeight="bold">
+              Summary
+            </Typography>
+            <Typography color="white">Show More</Typography>
+          </Box>
+          {/* js object */}
+          <List>
+            <ListItemObj
+              title="Total APY"
+              value={`${stakeDetails["Total APY"]}`}
+            />
+            <ListItemObj
+              title="Base APY"
+              value={`${stakeDetails["Base APY"]}`}
+            />
+            <ListItemObj
+              title="APY Boost"
+              value={`${stakeDetails["APY Boost"]}`}
+            />
+            <ListItemObj
+              title="Total Available Rewards"
+              value={`${stakeDetails["Total Available Rewards"]}`}
+            />
+            <ListItemObj
+              title="Unlock Date"
+              value={`${stakeDetails["Unlock Date"]}`}
+            />
+            <ListItemObj
+              title="Total Interest"
+              value={`${stakeDetails["Total Interest"]}`}
+            />
+          </List>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={submitStake}
+            variant="contained"
+            sx={{ mt: "1rem", width: "100%", textTransform: "none" }}
+          >
+            Confirm Stake
+          </Button>
+        </DialogActions>
         <ErrorPopup />
       </Box>
-    </Modal>
+    </Dialog>
   );
 };
 
