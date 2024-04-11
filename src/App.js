@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 import { Outlet } from "react-router-dom";
 import ScrollTop from "./components/ScrollTop";
 
-const drawerWidth = 240;
+const drawerWidth = 20;
 
 function App() {
   const [auth, setAuth] = React.useState(false);
@@ -40,7 +40,9 @@ function App() {
             <h1>PC View Only</h1>
           </Box>
         ) : (
-          <Outlet context={[auth, setAuth]} />
+          <Box minWidth={"500px"} ml={`${drawerWidth}%`} width={"100%"}>
+            <Outlet context={[auth, setAuth]} />
+          </Box>
         )}
       </Box>
     </>

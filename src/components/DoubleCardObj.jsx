@@ -28,6 +28,7 @@ const CardObj = ({
       sx={{
         bgcolor: "secondary.500",
         width: { width },
+        minWidth: "400px",
         display: "flex",
         justifyContent: "space-between",
         gap: "1rem",

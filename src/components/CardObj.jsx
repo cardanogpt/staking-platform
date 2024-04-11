@@ -30,6 +30,7 @@ const CardObj = ({
         overflow: "hidden",
         bgcolor: "secondary.500",
         width: { width },
+        minWidth: "300px",
         padding: "2rem",
         display: "flex",
         flexDirection: "column",

@@ -24,9 +24,10 @@ const Nav = ({ drawerWidth, auth, setAuth }) => {
     <AppBar
       position="fixed"
       sx={{
-        width: `calc(100% - ${drawerWidth}px)`,
+        width: `calc(100% - ${drawerWidth}%)`,
+        minWidth: "500px",
         height: "6rem",
-        ml: `${drawerWidth}px`,
+        ml: `${drawerWidth}%`,
         bgcolor: "secondary.500",
         justifyContent: "center",
       }}

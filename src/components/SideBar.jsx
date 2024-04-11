@@ -8,7 +8,7 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import logo from "../assets/images/cardanogpt_full_logo.png";
 
-const drawerWidth = 240;
+const drawerWidth = 20;
 
 export const SideBar = () => {
   return (
@@ -24,7 +24,7 @@ export const SideBar = () => {
         flexShrink: 0,
         bgColor: "secondary.500",
         "& .MuiDrawer-paper": {
-          width: drawerWidth,
+          width: `${drawerWidth}%`,
           boxSizing: "border-box",
         },
       }}
