@@ -29,6 +29,7 @@ const Dashboard = () => {
           width={"50%"}
           image={logo}
           outlined
+          secondary
         />
         <DoubleCardObj
           title1="Total Staked"
