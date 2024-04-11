@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import logo from "../assets/images/cardanogpt_logo.png";
-import Modal from "@mui/material/Modal";
 import { Dialog } from "@mui/material";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -15,19 +14,6 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { wallet } from "../data";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
-
-const modalStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 450,
-  bgcolor: "secondary.500",
-  color: "white",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
 const Main = () => {
   const [, setAuth] = useOutletContext();
