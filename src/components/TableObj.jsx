@@ -40,12 +40,24 @@ const TableObj = ({ title, rows, children }) => {
           >
             {title}
           </Typography>
-          <Box display="flex" alignItems="center">
-            <IconButton color="secondary.100">
-              <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
+          <Box display="flex" alignItems="center" gap={2}>
+            <IconButton
+              sx={{
+                color: "secondary.main",
+                border: "1px solid",
+                borderRadius: "5px",
+              }}
+            >
+              <ArrowBackIcon color="secondary.main" />
             </IconButton>
-            <IconButton>
-              <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
+            <IconButton
+              sx={{
+                color: "secondary.main",
+                border: "1px solid",
+                borderRadius: "5px",
+              }}
+            >
+              <ArrowForwardIcon color="secondary.main" />
             </IconButton>
             <Typography variant="h6" sx={{ color: "#FFFFFF" }}>
               1 of 5
