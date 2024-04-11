@@ -21,6 +21,7 @@ const CardObj = ({
   buttonText2,
   handleModalOpen,
   image,
+  secondary,
 }) => {
   return (
     <Paper
@@ -61,6 +62,7 @@ const CardObj = ({
             onClick={handleModalOpen}
             variant={outlined ? "outlined" : "contained"}
             sx={{ textTransform: "none" }}
+            color={secondary ? "secondary" : "primary"}
           >
             {buttonText1}
           </Button>
