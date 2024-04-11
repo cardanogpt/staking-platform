@@ -64,7 +64,11 @@ const CardObj = ({
         </Typography>
         <Box>
           {buttonText1 && (
-            <Button variant="outlined" sx={{ textTransform: "none" }}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              sx={{ textTransform: "none" }}
+            >
               {buttonText1}
             </Button>
           )}
