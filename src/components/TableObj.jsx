@@ -68,7 +68,6 @@ const TableObj = ({ title, rows, children }) => {
           component={Paper}
           sx={{
             backgroundColor: "#0F0F0F",
-            color: "#FFFFFF",
           }}
         >
           <Table
@@ -76,10 +75,15 @@ const TableObj = ({ title, rows, children }) => {
             size="small"
             aria-label="a dense table"
           >
-            <TableHead sx={{ color: "#ffffff" }}>
+            <TableHead sx={{ color: "secondary.200", borderBottom: "none" }}>
               <TableRow>
                 {rows.map((row, i) => (
-                  <TableCell key={i}>{row}</TableCell>
+                  <TableCell
+                    sx={{ borderBottom: "0px", color: "secondary.200" }}
+                    key={i}
+                  >
+                    {row}
+                  </TableCell>
                 ))}
               </TableRow>
             </TableHead>
