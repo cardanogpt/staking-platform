@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,19 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import { Help } from "@mui/icons-material";
 import profile from "../assets/images/profile.png";
 
-const navTitles = {
-  "/": "Connect",
-  "/dashboard": "Dashboard",
-  "/stake": "Stake",
-  "/manage-positions": "Manage Positions",
-};
-
-const Nav = ({ drawerWidth, auth, setAuth }) => {
-  const location = window.location.pathname;
-  useEffect(() => {
-    document.title = navTitles[location];
-  }, [location]);
-
+const Nav = ({ drawerWidth, auth, title }) => {
   return (
     <AppBar
       position="fixed"
@@ -38,7 +26,7 @@ const Nav = ({ drawerWidth, auth, setAuth }) => {
           component="div"
           sx={{ flexGrow: 1, color: "#FFFFFF" }}
         >
-          {navTitles[location]}
+          {title}
         </Typography>
         <Box
           display={"flex"}
@@ -53,7 +41,7 @@ const Nav = ({ drawerWidth, auth, setAuth }) => {
             aria-haspopup="true"
             sx={{
               color: "primary.main",
-              p: 1,
+              p: 1.5,
               backgroundColor: "rgba(73, 223, 40, 0.1)",
               border: "1px solid rgba(146, 236, 126, 0.2)",
               borderRadius: "2px",

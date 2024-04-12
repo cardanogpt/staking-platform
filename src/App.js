@@ -7,9 +7,20 @@ import { Outlet } from "react-router-dom";
 import ScrollTop from "./components/ScrollTop";
 
 const drawerWidth = 20;
+const navTitles = {
+  "/": "Connect",
+  "/dashboard": "Dashboard",
+  "/stake": "Stake",
+  "/manage-positions": "Manage Positions",
+};
 
 function App() {
   const [auth, setAuth] = React.useState(false);
+  const location = window.location.pathname;
+  const [title, setTitle] = React.useState(navTitles[location]);
+  React.useEffect(() => {
+    document.title = title;
+  }, [title]);
   return (
     <>
       <ScrollTop />
@@ -22,10 +33,10 @@ function App() {
         <Nav
           auth={auth}
           setAuth={setAuth}
-          title="Dashboard"
+          title={title}
           drawerWidth={drawerWidth}
         />
-        <SideBar />
+        <SideBar setTitle={setTitle} />
         {/*  show pc only text if viewed on mobile */}
         {window.innerWidth < 768 ? (
           <Box
@@ -41,7 +52,10 @@ function App() {
           </Box>
         ) : (
           <Box minWidth={"500px"} ml={`${drawerWidth}%`} width={"100%"}>
-            <Outlet context={[auth, setAuth]} />
+            <Outlet
+              context={[auth, setAuth]}
+              setTitle={navTitles[window.location.pathname]}
+            />
           </Box>
         )}
       </Box>

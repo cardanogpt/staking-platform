@@ -10,7 +10,7 @@ import logo from "../assets/images/cardanogpt_full_logo.png";
 
 const drawerWidth = 20;
 
-export const SideBar = () => {
+export const SideBar = ({ setTitle }) => {
   return (
     <Drawer
       PaperProps={{
@@ -34,6 +34,7 @@ export const SideBar = () => {
       <Typography
         component={NavLink}
         to="/"
+        onClick={() => setTitle("Connect")}
         paddingY={"2rem"}
         paragraph
         sx={{}}
@@ -55,6 +56,7 @@ export const SideBar = () => {
           component={NavLink}
           to="/dashboard"
           disablePadding
+          onClick={() => setTitle("Dashboard")}
         >
           <ListItemButton>
             <ListItemText primary={"Dashboard"} />
@@ -65,6 +67,7 @@ export const SideBar = () => {
           component={NavLink}
           to="/stake"
           disablePadding
+          onClick={() => setTitle("Stake")}
         >
           <ListItemButton>
             <ListItemText primary={"Stake "} />
@@ -75,6 +78,7 @@ export const SideBar = () => {
           component={NavLink}
           to="/manage-positions"
           disablePadding
+          onClick={() => setTitle("Manage Positions")}
         >
           <ListItemButton>
             <ListItemText primary={"Manage Positions"} />
