@@ -15,7 +15,7 @@ import { wallet } from "../data";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
-const Main = () => {
+const Home = () => {
   const { setAuth } = useOutletContext();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -133,4 +133,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
