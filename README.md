@@ -2,14 +2,31 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## No State Manager
+
+A state manager was not used for the project because there was no discussion on which manager the Cardano Developer is familiar with.\
+There are various state managers like
+React-Context, Redux, Mobx etc. So the developer can use any prefered manager and integrate it to the project.
+
+## Dynamic Data
+
+Data on the pages for tables are fetched from a data file which simulates a real time fetching from an API.\
+This makes it easy to integrate with API and fetch data using Axios, Fetch or any other HTTP Client.
+
 ## Used Libraries
 
 ### Material UI
 
-[https://mui.com/material-ui/react-alert/](https://mui.com/material-ui/react-snackbar/)
-[https://mui.com/x/react-data-grid/](https://mui.com/x/react-data-grid/)
-[https://mui.com/material-ui/react-card/](https://mui.com/material-ui/react-card/)
-[https://mui.com/material-ui/react-modal/](https://mui.com/material-ui/react-modal/)
+[Box](https://mui.com/material-ui/react-box/).\
+[React Alert](https://mui.com/material-ui/react-snackbar/)\
+[React Data Grid](https://mui.com/x/react-data-grid/)\
+[React Card](https://mui.com/material-ui/react-card/)\
+[React Dialog](https://mui.com/material-ui/react-dialog/)
+[Material Icons](https://mui.com/material-ui/material-icons/)
+
+### React Router
+
+[Outlet](https://reactrouter.com/en/main/components/outlet)
 
 ## Available Scripts
 
