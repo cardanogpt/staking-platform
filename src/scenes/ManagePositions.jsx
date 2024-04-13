@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import TableObj from "../components/TableObj";
 import { Button, TableBody, TableCell, TableRow } from "@mui/material";
 import { positionData } from "../data";
+import DoubleCardObj from "../components/DoubleCardObj";
 
 const ManagePositions = () => {
   return (
@@ -20,15 +21,17 @@ const ManagePositions = () => {
           amount="12.33"
           buttonText1="Stake CGI"
           buttonText2="Buy CGI Tokens"
-          width={"35%"}
+          width={"40%"}
         />
-        <CardObj
-          title="Total Portfolio Value (CGI)"
-          amount="12.33"
+        <DoubleCardObj
+          title1="Total Staked CGI"
+          amount1={0.0}
+          title2="Claimable Token"
+          amount2={0.0}
           buttonText2="Claim Now"
-          double
-          width={"55%"}
-        ></CardObj>
+          disabled={true}
+          width={"50%"}
+        />
       </Box>
       <TableObj
         data={positionData}
