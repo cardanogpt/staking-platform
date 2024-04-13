@@ -33,7 +33,7 @@ const TableObj = ({ title, rows, children }) => {
         }}
         width="90%"
       >
-        <Box width="100%" display="flex" justifyContent="space-between">
+        <Box width="100%" display="flex" justifyContent="space-between" mb={4}>
           <Typography
             variant="h4"
             sx={{ color: "#FFFFFF", fontSize: "1.5rem" }}
@@ -48,7 +48,10 @@ const TableObj = ({ title, rows, children }) => {
                 borderRadius: "5px",
               }}
             >
-              <ArrowBackIcon color="secondary.main" />
+              <ArrowBackIcon
+                sx={{ fontSize: "0.8rem" }}
+                color="secondary.main"
+              />
             </IconButton>
             <IconButton
               sx={{
@@ -57,7 +60,10 @@ const TableObj = ({ title, rows, children }) => {
                 borderRadius: "5px",
               }}
             >
-              <ArrowForwardIcon color="secondary.main" />
+              <ArrowForwardIcon
+                sx={{ fontSize: "0.8rem" }}
+                color="secondary.main"
+              />
             </IconButton>
             <Typography variant="h6" sx={{ color: "#FFFFFF" }}>
               1 of 5
