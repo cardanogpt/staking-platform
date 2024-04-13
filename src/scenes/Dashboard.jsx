@@ -3,8 +3,10 @@ import Box from "@mui/material/Box";
 import logo from "../assets/images/cardanogpt_logo.png";
 import CardObj from "../components/CardObj";
 import DoubleCardObj from "../components/DoubleCardObj";
+import { useOutletContext } from "react-router-dom";
 
 const Dashboard = () => {
+  const { handleStakeModalOpen } = useOutletContext();
   return (
     <Box width={"100%"} marginTop={"6rem"}>
       <Box
@@ -21,6 +23,7 @@ const Dashboard = () => {
           buttonText1="Stake CGI"
           buttonText2="Buy CGI Tokens"
           width={"40%"}
+          handleModalOpen={handleStakeModalOpen}
         />
         <CardObj
           title="Total Portfolio Value (ADA)"

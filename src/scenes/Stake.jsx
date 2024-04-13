@@ -3,14 +3,10 @@ import TransactionHistory from "../components/TransactionHistory";
 import Box from "@mui/material/Box";
 import CardObj from "../components/CardObj";
 import DoubleCardObj from "../components/DoubleCardObj";
-import StakeModal from "../components/StakeModal";
-import CompleteStakeModal from "../components/CompleteStakeModal";
+import { useOutletContext } from "react-router-dom";
 
 const Stake = () => {
-  const [openModal, setModalOpen] = React.useState(false);
-  const handleModalOpen = () => setModalOpen(true);
-  const [completeModalOpen, setCompleteModalOpen] = React.useState(false);
-
+  const { handleStakeModalOpen } = useOutletContext();
   return (
     <Box width={"100%"} marginTop={"6rem"}>
       <Box
@@ -26,7 +22,7 @@ const Stake = () => {
           buttonText1="Stake CGI"
           buttonText2="Buy CGI Tokens"
           width={"40%"}
-          handleModalOpen={handleModalOpen}
+          handleModalOpen={handleStakeModalOpen}
         />
         <DoubleCardObj
           title1="Total Staked CGI"
@@ -39,15 +35,6 @@ const Stake = () => {
         />
       </Box>
       <TransactionHistory />
-      <StakeModal
-        openModal={openModal}
-        setModalOpen={setModalOpen}
-        setCompleteModalOpen={setCompleteModalOpen}
-      />
-      <CompleteStakeModal
-        openModal={completeModalOpen}
-        setModalOpen={setCompleteModalOpen}
-      />
     </Box>
   );
 };

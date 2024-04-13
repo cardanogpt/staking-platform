@@ -5,8 +5,11 @@ import TableObj from "../components/TableObj";
 import { Button, TableBody, TableCell, TableRow } from "@mui/material";
 import { positionData } from "../data";
 import DoubleCardObj from "../components/DoubleCardObj";
+import { useOutletContext } from "react-router-dom";
 
 const ManagePositions = () => {
+  const { handleStakeModalOpen } = useOutletContext();
+  console.log("reload");
   return (
     <Box width={"100%"} marginTop={"6rem"}>
       <Box
@@ -22,6 +25,7 @@ const ManagePositions = () => {
           buttonText1="Stake CGI"
           buttonText2="Buy CGI Tokens"
           width={"40%"}
+          handleModalOpen={handleStakeModalOpen}
         />
         <DoubleCardObj
           title1="Total Staked CGI"
