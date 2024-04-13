@@ -33,6 +33,7 @@ export default function TransitionsSnackbar() {
 
   return (
     <Box>
+      {/* Error Demo Display */}
       <Button onClick={handleClick(SlideTransition)}>Popup Error</Button>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}

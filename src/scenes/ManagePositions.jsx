@@ -9,7 +9,6 @@ import { useOutletContext } from "react-router-dom";
 
 const ManagePositions = () => {
   const { handleStakeModalOpen } = useOutletContext();
-  console.log("reload");
   return (
     <Box width={"100%"} marginTop={"6rem"}>
       <Box

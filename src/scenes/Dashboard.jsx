@@ -6,6 +6,7 @@ import DoubleCardObj from "../components/DoubleCardObj";
 import { useOutletContext } from "react-router-dom";
 
 const Dashboard = () => {
+  //handle stake button
   const { handleStakeModalOpen } = useOutletContext();
   return (
     <Box width={"100%"} marginTop={"6rem"}>

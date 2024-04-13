@@ -17,6 +17,8 @@ import { useOutletContext } from "react-router-dom";
 
 const Home = () => {
   const { setAuth } = useOutletContext();
+
+  //handle connect wallet modal
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
