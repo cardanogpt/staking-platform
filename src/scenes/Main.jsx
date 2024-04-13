@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
 const Main = () => {
-  const [, setAuth] = useOutletContext();
+  const { setAuth } = useOutletContext();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
