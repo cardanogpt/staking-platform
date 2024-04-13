@@ -79,17 +79,34 @@ const CardObj = ({
         )}
       </Box>
       {image && (
-        <img
-          src={image}
-          alt=""
-          style={{
-            position: "absolute",
-            bottom: "-17%",
-            right: "-5%",
-            transform: "rotate(-45deg)",
-            opacity: "0.9",
-          }}
-        />
+        <>
+          <img
+            src={image}
+            alt=""
+            style={{
+              position: "absolute",
+              bottom: "-17%",
+              right: "-5%",
+              transform: "rotate(-45deg)",
+              opacity: "0.9",
+              zIndex: "2",
+            }}
+          />
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            sx={{
+              position: "absolute",
+              width: "50%",
+              height: "50%",
+              borderRadius: "50%",
+              background: "#4adf2881",
+              filter: "blur(100px)",
+              bottom: "0%",
+              right: "-30%",
+            }}
+          ></Box>
+        </>
       )}
     </Paper>
   );
