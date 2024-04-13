@@ -5,6 +5,8 @@ import { SideBar } from "./components/SideBar";
 import Nav from "./components/Nav";
 import { Outlet } from "react-router-dom";
 import ScrollTop from "./components/ScrollTop";
+import StakeModal from "./components/StakeModal";
+import CompleteStakeModal from "./components/CompleteStakeModal";
 
 const drawerWidth = 20;
 const navTitles = {
@@ -18,6 +20,10 @@ function App() {
   const [auth, setAuth] = React.useState(false);
   const location = window.location.pathname;
   const [title, setTitle] = React.useState(navTitles[location]);
+
+  const [stakeModal, setStakeModal] = React.useState(false);
+  const handleStakeModalOpen = () => setStakeModal(true);
+  const [completeModal, setCompleteModal] = React.useState(false);
   React.useEffect(() => {
     document.title = title;
   }, [title]);
@@ -53,8 +59,17 @@ function App() {
         ) : (
           <Box minWidth={"500px"} ml={`${drawerWidth}%`} pt={2} width={"100%"}>
             <Outlet
-              context={[auth, setAuth]}
+              context={{ auth, setAuth, stakeModal, handleStakeModalOpen }}
               setTitle={navTitles[window.location.pathname]}
+            />
+            <StakeModal
+              openModal={stakeModal}
+              setModalOpen={setStakeModal}
+              setCompleteModalOpen={setCompleteModal}
+            />
+            <CompleteStakeModal
+              openModal={completeModal}
+              setModalOpen={setCompleteModal}
             />
           </Box>
         )}
