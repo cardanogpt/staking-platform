@@ -51,7 +51,7 @@ function App() {
             <h1>PC View Only</h1>
           </Box>
         ) : (
-          <Box minWidth={"500px"} ml={`${drawerWidth}%`} width={"100%"}>
+          <Box minWidth={"500px"} ml={`${drawerWidth}%`} pt={2} width={"100%"}>
             <Outlet
               context={[auth, setAuth]}
               setTitle={navTitles[window.location.pathname]}
