@@ -67,7 +67,6 @@ function App() {
             padding="1rem"
             width="100%"
             textAlign="center"
-            ml={`${drawerWidth}%`}
           >
             <img
               src={logo}
