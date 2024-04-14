@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 import ScrollTop from "./components/ScrollTop";
 import StakeModal from "./components/StakeModal";
 import CompleteStakeModal from "./components/CompleteStakeModal";
+import logo from "./assets/images/cardanogpt_logo.png";
 
 //drawer wodth in percentage
 const drawerWidth = 20;
@@ -55,37 +56,48 @@ function App() {
           title={title}
           drawerWidth={drawerWidth}
         />
-        <SideBar setTitle={setTitle} />
-        {/*  show pc only text if viewed on mobile */}
         {window.innerWidth < 768 ? (
           <Box
             display="flex"
+            flexDirection="column"
             alignItems="center"
+            justifyContent="center"
             color="secondary.main"
             bgcolor="secondary.600"
             padding="1rem"
             width="100%"
             textAlign="center"
+            ml={`${drawerWidth}%`}
           >
+            <img
+              src={logo}
+              alt="logo"
+              style={{ width: "5rem", height: "5rem", filter: "opacity(0.2)" }}
+            />
             <h1>PC View Only</h1>
           </Box>
         ) : (
-          <Box minWidth={"500px"} ml={`${drawerWidth}%`} pt={2} width={"100%"}>
-            {/* Component Children Wrapper https://reactrouter.com/en/main/components/outlet */}
-            <Outlet
-              context={{ auth, setAuth, stakeModal, handleStakeModalOpen }}
-              setTitle={navTitles[window.location.pathname]}
-            />
-            <StakeModal
-              openModal={stakeModal}
-              setModalOpen={setStakeModal}
-              setCompleteModalOpen={setCompleteModal}
-            />
-            <CompleteStakeModal
-              openModal={completeModal}
-              setModalOpen={setCompleteModal}
-            />
-          </Box>
+          <>
+            <SideBar setTitle={setTitle} />
+            {/*  show pc only text if viewed on mobile */}
+
+            <Box ml={`${drawerWidth}%`} pt={2} width={"100%"}>
+              {/* Component Children Wrapper https://reactrouter.com/en/main/components/outlet */}
+              <Outlet
+                context={{ auth, setAuth, stakeModal, handleStakeModalOpen }}
+                setTitle={navTitles[window.location.pathname]}
+              />
+              <StakeModal
+                openModal={stakeModal}
+                setModalOpen={setStakeModal}
+                setCompleteModalOpen={setCompleteModal}
+              />
+              <CompleteStakeModal
+                openModal={completeModal}
+                setModalOpen={setCompleteModal}
+              />
+            </Box>
+          </>
         )}
       </Box>
     </>

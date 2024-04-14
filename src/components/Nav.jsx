@@ -13,7 +13,6 @@ const Nav = ({ drawerWidth, auth, title }) => {
       position="fixed"
       sx={{
         width: `calc(100% - ${drawerWidth}%)`,
-        minWidth: "500px",
         height: "6rem",
         ml: `${drawerWidth}%`,
         bgcolor: "secondary.500",
