@@ -3,9 +3,11 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { SideBar } from "./SideBar";
 import Nav from "./Nav";
-//import ScrollTop from "./ScrollTop";
 import StakeModal from "./StakeModal";
 import CompleteStakeModal from "./CompleteStakeModal";
+import logo from "../assets/images/cardanogpt_logo.png";
+import Image from "next/image";
+import { Typography } from "@mui/material";
 
 export default function Layout({ children }) {
   //drawer width in percentage
@@ -51,7 +53,18 @@ export default function Layout({ children }) {
               textAlign="center"
               sx={{ display: { xs: "flex", md: "none" } }}
             >
-              <h1>PC View Only</h1>
+              <Image
+                src={logo}
+                alt="logo"
+                style={{
+                  width: "5rem",
+                  height: "5rem",
+                  filter: "opacity(0.2)",
+                }}
+              />
+              <Typography mt={2}>
+                View on a larger display for a better experience
+              </Typography>
             </Box>
             <Box
               component={"main"}
