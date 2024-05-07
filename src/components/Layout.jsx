@@ -38,7 +38,25 @@ export default function Layout({ children }) {
 
           <Box ml={`${drawerWidth}%`} pt={2} width={"100%"}>
             {/* Component Children Wrapper https://reactrouter.com/en/main/components/outlet */}
-            <main>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+              color="secondary.main"
+              bgcolor="secondary.600"
+              padding="1rem"
+              width="100%"
+              height="100%"
+              textAlign="center"
+              sx={{ display: { xs: "flex", md: "none" } }}
+            >
+              <h1>PC View Only</h1>
+            </Box>
+            <Box
+              component={"main"}
+              sx={{ display: { xs: "none", md: "block" } }}
+            >
               {
                 // Render the children components with props
                 React.cloneElement(children, {
@@ -48,7 +66,7 @@ export default function Layout({ children }) {
                   handleStakeModalOpen,
                 })
               }
-            </main>
+            </Box>
             <StakeModal
               openModal={stakeModal}
               setModalOpen={setStakeModal}
