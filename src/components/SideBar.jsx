@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Drawer from "@mui/material/Drawer";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -8,10 +9,12 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import logo from "../assets/images/cardanogpt_full_logo.png";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const drawerWidth = 20;
 
 export const SideBar = () => {
+  const pathname = usePathname();
   return (
     <Drawer
       PaperProps={{
@@ -53,12 +56,19 @@ export const SideBar = () => {
           component={Link}
           href="/dashboard"
           disablePadding
+          className={`${pathname === "/dashboard" ? "active" : ""}`}
         >
           <ListItemButton>
             <ListItemText primary={"Dashboard"} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={"Staking"} component={Link} href="/stake" disablePadding>
+        <ListItem
+          key={"Staking"}
+          component={Link}
+          href="/stake"
+          disablePadding
+          className={`${pathname === "/stake" ? "active" : ""}`}
+        >
           <ListItemButton>
             <ListItemText primary={"Stake "} />
           </ListItemButton>
@@ -68,6 +78,7 @@ export const SideBar = () => {
           component={Link}
           href="/manage-positions"
           disablePadding
+          className={`${pathname === "/manage-positions" ? "active" : ""}`}
         >
           <ListItemButton>
             <ListItemText primary={"Manage Positions"} />
