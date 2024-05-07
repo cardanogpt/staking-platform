@@ -13,7 +13,6 @@ const Transaction = () => {
   return (
     <Box width="100%">
       <TableObj
-        data={TransactionData}
         title={"Transaction History"}
         rows={["Amount", "Duration", "Date", "Status", "Action"]}
       >
