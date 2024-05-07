@@ -31,12 +31,7 @@ export default function Layout({ children }) {
       >
         {/* Normalize CSS */}
         <CssBaseline />
-        <Nav
-          auth={auth}
-          setAuth={setAuth}
-          title={"title"}
-          drawerWidth={drawerWidth}
-        />
+        <Nav auth={auth} setAuth={setAuth} drawerWidth={drawerWidth} />
         <>
           <SideBar />
           {/*  show pc only text if viewed on mobile */}
