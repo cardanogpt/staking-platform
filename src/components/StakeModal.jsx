@@ -142,7 +142,7 @@ const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
               active={duration === 12}
             />
           </Box>
-          <Typography display="flex" flexDirection="column" mt="1rem">
+          <Box display="flex" flexDirection="column" mt="1rem">
             Amount to Lock
             <input
               style={{
@@ -155,7 +155,7 @@ const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
                 outline: "none",
               }}
             />
-          </Typography>
+          </Box>
           <Typography display={"flex"} gap={1} fontSize="0.6rem">
             Available CGI: <Box fontWeight={"bold"}> 12.30 ($12.02)</Box>
           </Typography>
