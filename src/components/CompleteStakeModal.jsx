@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import logo from "../assets/images/cardanogpt_logo.png";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import Image from "next/image";
 
 export default function CompleteStakeModal({ openModal, setModalOpen }) {
   const handleClose = () => setModalOpen(false);
@@ -50,7 +51,11 @@ export default function CompleteStakeModal({ openModal, setModalOpen }) {
             justifyContent="center"
             flexDirection="column"
           >
-            <img style={{ width: "5rem", height: "5rem" }} src={logo} alt="" />
+            <Image
+              style={{ width: "5rem", height: "5rem" }}
+              src={logo}
+              alt=""
+            />
             <DialogTitle variant="h4" color="#FFFFFF">
               Staking Completed
             </DialogTitle>

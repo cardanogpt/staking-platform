@@ -2,15 +2,16 @@ import React from "react";
 import Drawer from "@mui/material/Drawer";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import logo from "../assets/images/cardanogpt_full_logo.png";
+import Image from "next/image";
 
 const drawerWidth = 20;
 
-export const SideBar = ({ setTitle }) => {
+export const SideBar = () => {
   return (
     <Drawer
       PaperProps={{
@@ -27,19 +28,15 @@ export const SideBar = ({ setTitle }) => {
           width: `${drawerWidth}%`,
           boxSizing: "border-box",
         },
+        "& .MuiButtonBase-root:hover": {
+          backgroundColor: "secondary.300",
+        },
       }}
       variant="permanent"
       anchor="left"
     >
-      <Typography
-        component={NavLink}
-        to="/"
-        onClick={() => setTitle("Connect")}
-        paddingY={"2rem"}
-        paragraph
-        sx={{}}
-      >
-        <img src={logo} alt="" />
+      <Typography component={Link} href="/" paddingY={"2rem"} paragraph sx={{}}>
+        <Image src={logo} alt="" />
       </Typography>
       <List
         sx={{
@@ -53,32 +50,24 @@ export const SideBar = ({ setTitle }) => {
       >
         <ListItem
           key={"Dashboard"}
-          component={NavLink}
-          to="/dashboard"
+          component={Link}
+          href="/dashboard"
           disablePadding
-          onClick={() => setTitle("Dashboard")}
         >
           <ListItemButton>
             <ListItemText primary={"Dashboard"} />
           </ListItemButton>
         </ListItem>
-        <ListItem
-          key={"Staking"}
-          component={NavLink}
-          to="/stake"
-          disablePadding
-          onClick={() => setTitle("Stake")}
-        >
+        <ListItem key={"Staking"} component={Link} href="/stake" disablePadding>
           <ListItemButton>
             <ListItemText primary={"Stake "} />
           </ListItemButton>
         </ListItem>
         <ListItem
           key={"Manage Positions"}
-          component={NavLink}
-          to="/manage-positions"
+          component={Link}
+          href="/manage-positions"
           disablePadding
-          onClick={() => setTitle("Manage Positions")}
         >
           <ListItemButton>
             <ListItemText primary={"Manage Positions"} />

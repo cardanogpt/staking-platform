@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -12,12 +13,10 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { wallet } from "../data";
-import { Link } from "react-router-dom";
-import { useOutletContext } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 
-const Home = () => {
-  const { setAuth } = useOutletContext();
-
+const Home = ({ setAuth }) => {
   //handle connect wallet modal
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -32,6 +31,15 @@ const Home = () => {
       justifyContent="center"
       sx={{ color: "secondary.main", p: 3 }}
     >
+      <Head>
+        <title>CardanoGPT Stake</title>
+        <meta
+          name="description"
+          content="harnessing the potential of AI to drive web3 initiatives and communities forward"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Box
         display={"flex"}
         width="20rem"
@@ -39,7 +47,7 @@ const Home = () => {
         justifyContent="center"
         flexDirection="column"
       >
-        <img style={{ width: "5rem", height: "5rem" }} src={logo} alt="" />
+        <Image style={{ width: "5rem", height: "5rem" }} src={logo} alt="" />
         <Typography variant="h5" color="#FFFFFF">
           Connect Wallet
         </Typography>
@@ -103,7 +111,7 @@ const Home = () => {
                   key={item.name}
                   component={Link}
                   onClick={() => setAuth(true)}
-                  to="/dashboard"
+                  href="/dashboard"
                 >
                   <ListItemIcon>
                     <img

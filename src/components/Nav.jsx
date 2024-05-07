@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { Help } from "@mui/icons-material";
 import profile from "../assets/images/profile.png";
+import Image from "next/image";
 
 const Nav = ({ drawerWidth, auth, title }) => {
   return (
@@ -24,9 +25,7 @@ const Nav = ({ drawerWidth, auth, title }) => {
           variant="h6"
           component="div"
           sx={{ flexGrow: 1, color: "#FFFFFF" }}
-        >
-          {title}
-        </Typography>
+        ></Typography>
         <Box
           display={"flex"}
           gap={2}
@@ -59,7 +58,7 @@ const Nav = ({ drawerWidth, auth, title }) => {
               justifyContent={"space-evenly"}
               border="1px solid rgba(146, 236, 126, 0.2)"
             >
-              <img
+              <Image
                 src={profile}
                 alt="profile"
                 style={{

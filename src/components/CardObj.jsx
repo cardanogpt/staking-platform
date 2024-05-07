@@ -3,6 +3,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Image from "next/image";
 
 const gradientText = {
   alignSelf: "self-start",
@@ -80,7 +81,7 @@ const CardObj = ({
       </Box>
       {image && (
         <>
-          <img
+          <Image
             src={image}
             alt=""
             style={{
