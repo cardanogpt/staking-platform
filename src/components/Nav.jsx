@@ -7,8 +7,12 @@ import IconButton from "@mui/material/IconButton";
 import { Help } from "@mui/icons-material";
 import profile from "../assets/images/profile.png";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-const Nav = ({ drawerWidth, auth, title }) => {
+const Nav = ({ drawerWidth, auth }) => {
+  const pathname = usePathname();
+  const title = pathname.split("/")[1].replace("-", " ") || "Home";
+
   return (
     <AppBar
       position="fixed"
@@ -25,7 +29,10 @@ const Nav = ({ drawerWidth, auth, title }) => {
           variant="h6"
           component="div"
           sx={{ flexGrow: 1, color: "#FFFFFF" }}
-        ></Typography>
+          textTransform={"capitalize"}
+        >
+          {title}
+        </Typography>
         <Box
           display={"flex"}
           gap={2}
