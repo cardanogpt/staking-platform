@@ -84,6 +84,7 @@ const CardObj = ({
           <Image
             src={image}
             alt=""
+            priority
             style={{
               position: "absolute",
               bottom: "-17%",

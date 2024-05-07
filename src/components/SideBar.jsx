@@ -36,7 +36,7 @@ export const SideBar = () => {
       anchor="left"
     >
       <Typography component={Link} href="/" paddingY={"2rem"} paragraph sx={{}}>
-        <Image src={logo} alt="" />
+        <Image src={logo} alt="" priority />
       </Typography>
       <List
         sx={{
