@@ -7,7 +7,7 @@ import { positionData } from "../data";
 import DoubleCardObj from "../components/DoubleCardObj";
 import Head from "next/head";
 
-const ManagePositions = ({ handleStakeModalOpen }) => {
+const ManagePositions = ({ handleStakeModalOpen }: { handleStakeModalOpen: any }) => {
   return (
     <>
       <Head>
@@ -23,7 +23,7 @@ const ManagePositions = ({ handleStakeModalOpen }) => {
         >
           <CardObj
             title="Total Portfolio Value (CGI)"
-            amount="12.33"
+            amount={12.33}
             buttonText1="Stake CGI"
             buttonText2="Buy CGI Tokens"
             width={"40%"}

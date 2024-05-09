@@ -11,7 +11,15 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import IconButton from "@mui/material/IconButton";
 
-const TableObj = ({ title, rows, children }) => {
+const TableObj = ({
+  title,
+  rows,
+  children,
+}: {
+  title: string;
+  rows: string[];
+  children: React.ReactNode;
+}) => {
   return (
     <Box
       display="flex"
@@ -50,7 +58,7 @@ const TableObj = ({ title, rows, children }) => {
             >
               <ArrowBackIcon
                 sx={{ fontSize: "0.8rem" }}
-                color="secondary.main"
+                // color="secondary.main"
               />
             </IconButton>
             <IconButton
@@ -62,7 +70,7 @@ const TableObj = ({ title, rows, children }) => {
             >
               <ArrowForwardIcon
                 sx={{ fontSize: "0.8rem" }}
-                color="secondary.main"
+                // color="secondary.main"
               />
             </IconButton>
             <Typography variant="h6" sx={{ color: "#FFFFFF" }}>

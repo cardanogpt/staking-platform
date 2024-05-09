@@ -10,7 +10,13 @@ import logo from "../assets/images/cardanogpt_logo.png";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Image from "next/image";
 
-export default function CompleteStakeModal({ openModal, setModalOpen }) {
+export default function CompleteStakeModal({
+  openModal,
+  setModalOpen,
+}: {
+  openModal: boolean;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const handleClose = () => setModalOpen(false);
 
   return (
@@ -67,7 +73,6 @@ export default function CompleteStakeModal({ openModal, setModalOpen }) {
               <Button
                 variant="contained"
                 onClick={handleClose}
-                display="block"
                 sx={{ textTransform: "none", width: "100%" }}
               >
                 Continue

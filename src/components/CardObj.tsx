@@ -3,7 +3,20 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import internal from "stream";
+
+interface CardObjProps {
+  width?: string;
+  title: string;
+  amount: number;
+  outlined?: boolean;
+  buttonText1?: string;
+  buttonText2?: string;
+  handleModalOpen?: () => void;
+  image?: StaticImageData;
+  secondary?: boolean;
+}
 
 const gradientText = {
   alignSelf: "self-start",
@@ -23,7 +36,7 @@ const CardObj = ({
   handleModalOpen,
   image,
   secondary,
-}) => {
+}: CardObjProps) => {
   return (
     <Paper
       sx={{

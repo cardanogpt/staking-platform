@@ -5,6 +5,17 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 
+interface doubleCardObjProps {
+  width: string;
+  title1: string;
+  title2: string;
+  amount1: number;
+  amount2: number;
+  buttonText1?: string;
+  buttonText2?: string;
+  disabled?: boolean;
+}
+
 const gradientText = {
   alignSelf: "self-start",
   background:
@@ -22,7 +33,7 @@ const CardObj = ({
   buttonText1,
   buttonText2,
   disabled,
-}) => {
+}: doubleCardObjProps) => {
   return (
     <Paper
       sx={{

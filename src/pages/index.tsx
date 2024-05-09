@@ -15,8 +15,9 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { wallet } from "../data";
 import Link from "next/link";
 import Image from "next/image";
+import { AppProps } from "next/app";
 
-const Home = ({ setAuth }) => {
+const Home = ({ connectWallet }: { connectWallet: any }) => {
   //handle connect wallet modal
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -110,7 +111,7 @@ const Home = ({ setAuth }) => {
                 <ListItem
                   key={item.name}
                   component={Link}
-                  onClick={() => setAuth(true)}
+                  onClick={() => connectWallet(item.name.toLowerCase())}
                   href="/dashboard"
                 >
                   <ListItemIcon>

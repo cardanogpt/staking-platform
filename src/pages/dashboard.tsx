@@ -5,7 +5,7 @@ import CardObj from "../components/CardObj";
 import DoubleCardObj from "../components/DoubleCardObj";
 import Head from "next/head";
 
-const Dashboard = ({ handleStakeModalOpen }) => {
+const Dashboard = ({ handleStakeModalOpen }: { handleStakeModalOpen: any }) => {
   return (
     <>
       <Head>
@@ -22,7 +22,7 @@ const Dashboard = ({ handleStakeModalOpen }) => {
         >
           <CardObj
             title="Total Portfolio Value (CGI)"
-            amount="12.33"
+            amount={12.33}
             buttonText1="Stake CGI"
             buttonText2="Buy CGI Tokens"
             width={"40%"}

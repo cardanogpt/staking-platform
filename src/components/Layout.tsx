@@ -9,11 +9,16 @@ import logo from "../assets/images/cardanogpt_logo.png";
 import Image from "next/image";
 import { Typography } from "@mui/material";
 
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: React.ReactElement }) {
   //drawer width in percentage
   const drawerWidth = 20;
   //state for auth
   const [auth, setAuth] = React.useState(false);
+
+  const connectWallet = (walletId: string) => {
+    setAuth(true);
+    console.log(`Wallet connected: ${walletId}`);
+  };
 
   //state for stake modal
   const [stakeModal, setStakeModal] = React.useState(false);
@@ -33,7 +38,7 @@ export default function Layout({ children }) {
       >
         {/* Normalize CSS */}
         <CssBaseline />
-        <Nav auth={auth} setAuth={setAuth} drawerWidth={drawerWidth} />
+        <Nav auth={auth} drawerWidth={drawerWidth} />
         <>
           <SideBar />
           {/*  show pc only text if viewed on mobile */}
@@ -74,7 +79,7 @@ export default function Layout({ children }) {
                 // Render the children components with props
                 React.cloneElement(children, {
                   auth,
-                  setAuth,
+                  connectWallet,
                   stakeModal,
                   handleStakeModalOpen,
                 })

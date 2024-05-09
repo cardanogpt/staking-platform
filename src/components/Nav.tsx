@@ -9,7 +9,7 @@ import profile from "../assets/images/profile.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const Nav = ({ drawerWidth, auth }) => {
+const Nav = ({ drawerWidth, auth }: { drawerWidth: number; auth: boolean }) => {
   const pathname = usePathname();
   const title = pathname.split("/")[1].replace("-", " ") || "Home";
 
@@ -57,7 +57,7 @@ const Nav = ({ drawerWidth, auth }) => {
           {auth && (
             <Box
               display={"flex"}
-              backgroundColor="#49DF281A"
+              // backgroundColor="#49DF281A"
               alignItems={"center"}
               px={2}
               borderRadius={1}

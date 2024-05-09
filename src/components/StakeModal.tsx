@@ -14,7 +14,7 @@ import ErrorPopup from "./ErrorPopup";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
-const ListItemObj = ({ title, value }) => (
+const ListItemObj = ({ title, value }: { title: string, value: string }) => (
   <ListItem sx={{ padding: "0" }}>
     <ListItemText
       primary={title}
@@ -34,7 +34,7 @@ const ListItemObj = ({ title, value }) => (
   </ListItem>
 );
 
-const PillButton = ({ num, setDuration, active }) => (
+const PillButton = ({ num, setDuration, active }: { num: number, setDuration: (duration: number) => void, active: boolean }) => (
   <Button
     variant="outlined"
     color="secondary"
@@ -69,7 +69,7 @@ const PillButton = ({ num, setDuration, active }) => (
   </Button>
 );
 
-const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }) => {
+const StakeModal = ({ setModalOpen, openModal, setCompleteModalOpen }: { setModalOpen: (value: boolean) => void, openModal: boolean, setCompleteModalOpen: (value: boolean) => void }) => {
   const [duration, setDuration] = React.useState(0);
   const handleClose = () => setModalOpen(false);
 

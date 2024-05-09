@@ -48,7 +48,9 @@ const Transaction = () => {
                   {row.status}
                 </Button>
               </TableCell>
-              <TableCell ml="1rem" sx={{ gap: "0.5rem", display: "flex" }}>
+              <TableCell
+                /* ml="1rem" */ sx={{ gap: "0.5rem", display: "flex" }}
+              >
                 <LuCopy color="#49DF28" />
                 <RiShareBoxLine color="#ffffff" />
               </TableCell>

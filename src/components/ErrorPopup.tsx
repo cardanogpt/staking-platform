@@ -7,7 +7,7 @@ import Alert from "@mui/material/Alert";
 import Typography from "@mui/material/Typography";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
-function SlideTransition(props) {
+function SlideTransition(props: any) {
   return <Slide {...props} direction="down" />;
 }
 
@@ -17,7 +17,7 @@ export default function TransitionsSnackbar() {
     Transition: Slide,
   });
 
-  const handleClick = (Transition) => () => {
+  const handleClick = (Transition: any) => () => {
     setState({
       open: true,
       Transition,
