@@ -9,7 +9,7 @@ import profile from "../assets/images/profile.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const Nav = ({ drawerWidth, auth }: { drawerWidth: number; auth: boolean }) => {
+const Nav = ({ drawerWidth, auth, address }: { drawerWidth: number; auth: boolean; address: string | undefined }) => {
   const pathname = usePathname();
   const title = pathname.split("/")[1].replace("-", " ") || "Home";
 
@@ -76,7 +76,7 @@ const Nav = ({ drawerWidth, auth }: { drawerWidth: number; auth: boolean }) => {
                 <Typography color="secondary" variant="caption">
                   Wallet Address
                 </Typography>
-                <Typography sx={{ color: "#FFFFFF" }}>addre.sdjandj</Typography>
+                <Typography sx={{ color: "#FFFFFF" }}>{address}</Typography>
               </Box>
             </Box>
           )}

@@ -8,6 +8,7 @@ import CompleteStakeModal from "./CompleteStakeModal";
 import logo from "../assets/images/cardanogpt_logo.png";
 import Image from "next/image";
 import { Typography } from "@mui/material";
+import { LucidContext } from "@/contexts/LucidContext";
 
 export default function Layout({ children }: { children: React.ReactElement }) {
   //drawer width in percentage
@@ -15,10 +16,43 @@ export default function Layout({ children }: { children: React.ReactElement }) {
   //state for auth
   const [auth, setAuth] = React.useState(false);
 
-  const connectWallet = (walletId: string) => {
-    setAuth(true);
-    console.log(`Wallet connected: ${walletId}`);
+  const { lucid, resetLucid } = React.useContext(LucidContext);
+  const [connected, setConnected] = React.useState<boolean>(false);
+  const [address, setAddress] = React.useState<string | undefined>(undefined);
+
+  React.useEffect(() => {
+    const walletId = localStorage.getItem('walletId');
+    if (walletId && !connected) {
+      connectWallet(walletId);
+    }
+  }, [lucid]);
+
+  const connectWallet = async (walletId: string) => {
+    if (lucid) {
+      if (!window.cardano) {
+        throw new Error('Please install a cardano wallet extension in your browser');
+      }
+      const api = await window.cardano[walletId]?.enable();
+  
+      if (!api) {
+        throw new Error('Could not initialize selected wallet');
+      }
+  
+      lucid.selectWallet(api);
+      setAddress(await lucid.wallet.address());
+      localStorage.setItem('walletId', walletId);
+  
+      setAuth(true);
+      console.log(`Wallet connected: ${walletId}`);
+    }
   };
+
+  const disconnectWallet = async() => {
+    localStorage.removeItem("walletId");
+    resetLucid();
+    setConnected(false);
+    setAddress(undefined);
+  }
 
   //state for stake modal
   const [stakeModal, setStakeModal] = React.useState(false);
@@ -38,7 +72,7 @@ export default function Layout({ children }: { children: React.ReactElement }) {
       >
         {/* Normalize CSS */}
         <CssBaseline />
-        <Nav auth={auth} drawerWidth={drawerWidth} />
+        <Nav auth={auth} drawerWidth={drawerWidth} address={address} />
         <>
           <SideBar />
           {/*  show pc only text if viewed on mobile */}
